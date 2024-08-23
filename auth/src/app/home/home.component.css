@@ -1,0 +1,258 @@
+.bu{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    gap:5px;
+    width:100px;
+    height:35px;
+    background-color: hwb(40 0% 0%);
+  
+   }
+
+   .lower{
+    display:flex;
+    align-items:center;
+    gap: 25px
+   }
+   nav {
+      position:sticky;
+      top:0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 100%;
+      border: 0.25px solid lightslategrey;
+      border-right: none;
+      border-left: none;
+      border-color: lightgray;
+      
+    }
+
+    nav h6 {
+      color: darkgrey;
+    }
+
+    nav img {
+      height: 55px;
+      width: 200px;
+    }
+
+    #g {
+      height: 60px;
+      width: 150px;
+      border: none;
+      border-radius: 0;
+      margin-left: 300px;
+      position: relative;
+      left: 85px;
+    }
+
+    #j {
+      height: 60px;
+      border: none;
+      border-radius: 0;
+      margin-right: 200px;
+      width: 150px;
+      outline-style: solid;
+    }
+
+    .btn-success {
+      background-color: #660066;
+      color: white;
+    }
+
+    .logos {
+    
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      margin-left: 970px;
+      
+    }
+
+    .foodimages {
+      display: flex;
+      gap: 30px;
+      position:sticky;
+      top:0
+    }
+
+    .foodimages img {
+      width: 400px;
+      height: 290px;
+    }
+
+    .categiess a {
+      color: #4a4a4a;
+      font-family: ProximaNova-Medium, Helvetica, Arial, sans-serif;
+    }
+
+    .tgs {
+      display: flex;
+      flex-direction: row;
+      /* flex: 1; */
+     
+    }
+    
+    #hotstar{
+      /* display: flex;
+      flex-direction: row; */
+      flex: 3;
+      /* overflow: auto; */
+      position: sticky;
+      top: 0;
+      background-color: white; /* Ensure it has a background color */
+      z-index: 1000;  
+      padding: 10px 0; 
+    }
+    .categiess {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .cardtitle {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .main-content {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 100px;
+      margin-left: 180px;
+    }
+
+    .imnb {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .category-section {
+      width: 20%;
+      flex: 1;
+      overflow: auto;
+      position: sticky;
+      top:70px;
+      max-height: 100vh;  
+      
+      
+    }
+    
+    .popup{
+      background-color:white;
+      height:60px;
+      width:100px;
+      display:flex;
+      flex-direction:column;
+      align-items: center;
+      position:absolute;
+      top:120px;
+      left:1200px;
+      border:2px thin black;
+      visibility: visible;
+    }
+ 
+    .popup a{
+      color:#4a4a4a
+    }
+
+
+    .flex-item:hover #imgzoom{
+     transition: transform 0.3s ease-in-out;
+
+     border-radius: 10px;
+    
+    }
+    
+     #imgzoom {
+      cursor: pointer;
+      border-radius: 10px;
+      } 
+
+      #imgzoom{
+        transition: all .2s cubic-bezier(.15,.69,.83,.67);;
+      }
+      /* #imgzoom:hover {
+        transform: scale(1.1);
+      } */
+
+    .breakfast-section{
+      display:flex;
+      flex-direction: column;
+      gap:50px;
+      overflow-y: auto;
+      margin-right:200px;
+    }
+     
+
+    .displayareashink{
+        width:calc(100% - 300px);
+        right:500px;
+        background-color:green;
+        
+    }
+
+    .userbtn{
+      background-color: transparent;
+      border:none
+    }
+
+    #yp:hover{
+    
+        color:orange;
+      
+    }
+
+    #yp{
+      text-decoration: none;
+      color:black;
+      cursor: pointer;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display:block;
+      width:10px;
+      margin-top:0;
+      margin-right:100px;
+      border-radius:4px;
+      
+    } 
+    
+    .dropdown:hover .userbtn {
+      background-color: #9b9b9b;
+       color:white;
+       border-radius:4px
+    } 
+
+    .userbtn:hover {
+   
+      background-color: #9b9b9b; /* Set your desired hover background color */
+      color: white; /* Optional: change text color on hover */
+  }
+    
+    /* .logos {
+        
+         position:sticky;
+        top:0;
+        display:flex;
+        flex-direction: row;
+        align-items: center;
+        gap:10px;
+        margin-left:970px; 
+
+       #lo{
+        position:sticky;
+        top:0
+      } 
+
+    } */
+
+ 

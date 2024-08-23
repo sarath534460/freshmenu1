@@ -1,0 +1,16 @@
+.logos {
+        
+    position:sticky;
+   top:0;
+   display:flex;
+   flex-direction: row;
+   align-items: center;
+   gap:10px;
+   margin-left:900px; 
+
+  #lo{
+   position:sticky;
+   top:0
+ } 
+
+} 

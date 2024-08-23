@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // window.onload = function() {
+        //     var contentDiv = document.getElementById('itemslist');
+        //     var height = contentDiv.offsetHeight;
+           
+        // };
+
+       
+    </script>
+</head>
+<body>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="accordion"  id="st">
+                    <div style="display:flex;align-items:center;gap:10px;margin-top:20px;margin-left:30px;">
+                    <i class="fa-regular fa-user fa-xl"></i>
+                    <h5>Logged In As</h5>
+                    <p style="color: red;margin-left:350px">Details</p>
+                    
+                    </div>
+                    <h6 style="margin-left:30px;margin-top:20px">{{n}}</h6>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="accordion" id="is1">
+                    <div style="margin-top:30px;margin-left:40px">
+                        <h5>Delivery Time</h5>
+                        <h6 class="mt-4">Deliver Now</h6><!--
+                    --> <p style="color: #9b9b9b;font-size:medium">Your order will be delivered within <span style="  font-weight:500;color:black;font-size:medium;">45 minutes</span></p>
+
+                    </div>
+                 
+                </div>
+
+            </div>
+        </div>
+
+        <div style="margin-bottom: 60px;">
+            <div *ngIf="showpayment" class="accordion" id="deliveryaddress">
+                <div style="margin-left:30px;margin-top:20px ;display:flex;flex-direction: row;gap:10px">
+                <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <g fill="none" fill-rule="evenodd">
+                        <path stroke="#4A4A4A" stroke-linecap="round" stroke-width="2" d="M3.695 13.893C2.016 14.86 1 16.12 1 17.5 1 20.538 5.925 23 12 23s11-2.462 11-5.5c0-1.38-1.017-2.642-2.696-3.607"></path>
+                        <path stroke="#4A4A4A" stroke-width="2" d="M12 18c1.286 0 6-5.95 6-11.05C18 3.664 15.314 1 12 1S6 3.664 6 6.95C6 12.05 10.714 18 12 18z"></path>
+                        <circle cx="12" cy="7" r="2" fill="#4A4A4A"></circle>
+                    </g>
+                </svg>
+                <h5>Delivery Address</h5>
+                </div>
+             <div style="margin-left: 30px;margin-top: 10px;">
+               
+               <p style="margin:0">{{deliverydetails.fname}}</p>
+               <p style="margin:0">{{deliverydetails.mobileno}}</p>
+               <p style="margin:0">{{deliverydetails.dno}}</p>
+               <p style="margin:0">{{deliverydetails.street}}</p>
+               <p style="margin:0">{{deliverydetails.city}}</p>
+               <p style="margin:0">{{deliverydetails.state}}</p>
+               <p style="margin:0 ;margin-bottom: 10px;">{{deliverydetails.pin}}</p>
+            </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+              <div *ngIf="showaddress" style="margin-bottom: 300px;">
+                <div class="accordion"  id="stp" >
+                    <div style="display:flex;align-items:center;gap:10px;margin-top:40px;margin-left:30px">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <g fill="none" fill-rule="evenodd">
+                                <path stroke="#4A4A4A" stroke-linecap="round" stroke-width="2" d="M3.695 13.893C2.016 14.86 1 16.12 1 17.5 1 20.538 5.925 23 12 23s11-2.462 11-5.5c0-1.38-1.017-2.642-2.696-3.607"></path>
+                                <path stroke="#4A4A4A" stroke-width="2" d="M12 18c1.286 0 6-5.95 6-11.05C18 3.664 15.314 1 12 1S6 3.664 6 6.95C6 12.05 10.714 18 12 18z"></path>
+                                <circle cx="12" cy="7" r="2" fill="#4A4A4A"></circle>
+                            </g>
+                        </svg>
+                        <h5>Delivery Address</h5>
+                    </div>
+                    
+                    <div style="margin:30px">
+                      <form  #ref="ngForm" (ngSubmit)="deliveryaddress(ref)" >
+                        <input type="text" placeholder="Full Name" ngModel name="fname" required minlength="6" class="form-control mt-3">
+                        <div *ngIf="ref.controls['fname']?.['errors'] && validater">
+                            <small  style="color:red" *ngIf="ref.controls['fname']?.['errors']?.['required']">Name is required.</small>
+                            <small  style="color:red" *ngIf="ref.controls['fname']?.['errors']?.['minlength']">minimum 6 characters is required.</small>
+
+                         </div>
+                        <input type="text" placeholder="Enter Your Street Address" ngModel  name="street" required minlength="6" class="form-control mt-3">
+
+                        <div *ngIf="ref.controls['street']?.['errors']  && validater">
+                            <small  style="color:red" *ngIf="ref.controls['street']?.['errors']?.['required']">street name is required.</small>
+
+                         </div>
+
+                        <input type="text" placeholder="Door number,FloorNumber and Building" ngModel name="dno" pattern="^[0-9]{4}$" required class="form-control mt-3">
+                        <div *ngIf="ref.controls['dno']?.['errors']  && validater">
+                            <small  style="color:red" *ngIf="ref.controls['dno']?.['errors']?.['required']">dno is required.</small>
+                            <small  style="color:red" *ngIf="ref.controls['dno']?.['errors']?.['pattern']">minimum 4 digits is required.</small>
+
+                         </div>
+                        <input type="text" placeholder="10 digit Mobile Number" pattern="^([6-9]{1})([0-9]{9})$" required minlength="6" ngModel name="mobileno"class="form-control mt-3">
+                        <div *ngIf="ref.controls['mobileno']?.['errors']  && validater">
+                            <small  style="color:red" *ngIf="ref.controls['mobileno']?.['errors']?.['required']">Mobile no is required.</small>
+                            <small  style="color:red" *ngIf="ref.controls['mobileno']?.['errors']?.['pattern']">Enter valid 10 digit no</small>
+                            <!-- &&  ref.controls['city']?.['touched']  -->
+                         </div>
+                        <input type="text" placeholder="City" ngModel name="city" required class="form-control mt-3">
+                        <div *ngIf="ref.controls['city']?.['errors']  && validater">
+                            <small  style="color:red" *ngIf="ref.controls['city']?.['errors']?.['required']">city is required.</small>
+                            <small  style="color:red" *ngIf="ref.controls['city']?.['errors']?.['minlength']">minimum 6 characters is required.</small>
+
+                         </div>
+                        <input type="text" placeholder="State" ngModel name="state"  required class="form-control mt-3">
+                        <div *ngIf="ref.controls['state']?.['errors']  && validater">
+                            <small  style="color:red" *ngIf="ref.controls['state']?.['errors']?.['required']">state is required.</small>
+                            <small  style="color:red" *ngIf="ref.controls['state']?.['errors']?.['minlength']">minimum 6 characters is required.</small>
+
+                         </div>
+                        <input type="text" placeholder="Pin Code" ngModel name="pin" pattern="^[0-9]{6}$" required   class="form-control mt-3">
+                        <div *ngIf="ref.controls['pin']?.['errors']  && validater ">
+                            <small  style="color:red" *ngIf="ref.controls['pin']?.['errors']?.['required']">pin is required.</small>
+                            <small  style="color:red" *ngIf="ref.controls['pin']?.['errors']?.['pattern']">minimum 6 digits is required.</small>
+
+                         </div>
+                        <button type="submit"  style="margin-top:40px;background-color: orange;border-radius:20px;color:white;height:40px;width:200px;border:none;margin-left:30px">
+                            SAVE AND CONTINUE 
+                        </button>
+                      </form>
+                    </div>
+                    
+                    
+                </div> 
+              </div>
+
+
+                <div *ngIf="showpayment" style="margin-bottom: 300px;position: relative;bottom:35px">
+
+                    <div class="accordion" [ngClass]="{'dynamic-height-class': true}"  >
+                        <div style="display:flex;margin-left: 30px;margin-top: 30px;gap:10px">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <g fill="none" fill-rule="evenodd">
+                                    <path stroke="#4A4A4A" stroke-width="2" d="M1 6h20a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V6zM3 1h15a2 2 0 0 1 2 2v3H1V3a2 2 0 0 1 2-2z"></path>
+                                    <circle cx="18.5" cy="14.5" r="1.5" fill="#4A4A4A"></circle>
+                                </g> 
+                            </svg>
+                            <h5>Payment Method</h5>
+                        </div>
+                       <h6 class="ml-4 mt-3">Payment Methods</h6>
+
+                        <div style="display:flex;gap:30px">
+
+                        <div id="paymentmethods" class="col-md-4" >
+                        <!-- <button type="button" id="pay" >Cash</button><br>
+                        <button type="button" id="pay"  >Google Pay</button><br>
+                        <button type="button" id="pay">Cards</button><br>
+                        <button type="button" id="pay">Net Banking</button><br> -->
+                        <div>
+                        <button id="pay" *ngFor="let button of buttons; let i = index" [ngStyle]="{'background-color': button.clicked ? button.color : 'initial'}" (click)="changeColor(i)">{{button.paymenttype}} </button>
+                        </div>
+                        </div>
+                        
+                        <div>
+                            <div *ngIf="lastClickedIndex==0" class="mt-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="24" viewBox="0 0 44 24">
+                                    <g fill="none" fill-rule="evenodd">
+                                        <rect width="44" height="24" fill="#F0DBF0" rx="2"></rect>
+                                        <path fill="#CDA7CD" d="M6.917 22A6.005 6.005 0 0 0 2 17.083V6.917A6.005 6.005 0 0 0 6.917 2h30.166A6.005 6.005 0 0 0 42 6.917v10.166A6.005 6.005 0 0 0 37.083 22H6.917z"></path>
+                                        <circle cx="23" cy="12" r="4" fill="#F0DBF0"></circle>
+                                        <circle cx="14" cy="12" r="1" fill="#F0DBF0"></circle>
+                                        <circle cx="32" cy="12" r="1" fill="#F0DBF0"></circle>
+                                    </g>
+                                </svg><br>
+                                <div>
+                                    <h5 class="mt-2">Cash</h5><!-- 
+                                  --> <p style="color:#9b9b9b;margin-bottom: 12px">Pay with cash on deliver</p>
+                                   <button type="buton" (click)="placeorder()" style="background-color: orange;color:white;border:none;height:35px;width:180px;border-radius: 20px;">PLACE ORDER .<i class="fa-light fa fa-indian-rupee-sign"></i>{{totalPrice}}</button>
+                                </div>             
+                            </div> 
+                        </div>
+
+                        </div>
+
+                    </div>
+                </div>  
+
+            </div>
+            <div class="col-md-6">
+                <div class="accordion"  [ngClass]=" showaddress? 'itemslist' : 'it'">
+                    <h5 style="margin-top:30px;margin-left:35px">Total Items</h5>
+                    <div class="mt-3 ml-4" *ngFor="let d of  datain">
+                        <div style="display:flex;flex-direction:row;justify-content:space-between">
+                         <p class="ml-3" style="font-weight:lighter">{{ d.itemname }}</p>
+                          
+                            <div style="display:flex;flex-direction:row;text-align:center;font-size:16px;margin-right:30px;line-height:30px;width:60px;border:2px solid black;max-height: 30px;border-radius: 6px;">
+                            <button  style="color:orange;border:none;background-color:white;font-size:larger;" type="button">-</button>
+                            <span>{{d.quantity}}</span>
+                            <button style="color:orange;border:none;background-color: white;font-size:larger;" type="button">+</button>
+                            </div>
+                        </div>  
+                        
+                    
+                        <p class="ml-3" ><i class="fa-light fa fa-indian-rupee-sign"></i>{{d.totalprice}}</p>
+                   </div>
+                   <hr>
+
+                   <div style="display:flex;flex-direction:row;align-items:center;margin-left:30px ;gap:170px" >
+                    <h3>Payable</h3>
+                    <h3 style="margin-left:50px"><i class="fa-light fa fa-indian-rupee-sign"></i>{{totalPrice}}</h3>
+                   </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6" id="stk12">
+                <!-- <div class="accordion" id="stk">
+                  
+                </div> -->
+            </div>
+            <div class="col-md-6">
+                
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

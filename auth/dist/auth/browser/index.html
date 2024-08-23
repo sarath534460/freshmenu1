@@ -1,0 +1,153 @@
+<!DOCTYPE html><html lang="en" data-critters-container><head>
+  <meta charset="utf-8">
+  <title>Auth</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  
+  <!-- Popper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  
+  <!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://accounts.google.com/gsi/client" async></script>
+
+<link rel="stylesheet" href="styles-5INURTSO.css"><style ng-app-id="ng">nav[_ngcontent-ng-c3783823627] {
+      position:sticky;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 100%;
+      border: 0.25px solid lightslategrey;
+      border-right: none;
+      border-left: none;
+      border-color: lightgray;
+      
+    }
+
+    nav[_ngcontent-ng-c3783823627]   h6[_ngcontent-ng-c3783823627] {
+      color: darkgrey;
+    }
+
+    nav[_ngcontent-ng-c3783823627]   img[_ngcontent-ng-c3783823627] {
+      height: 55px;
+      width: 200px;
+    }
+
+    #g[_ngcontent-ng-c3783823627] {
+      height: 60px;
+      width: 150px;
+      border: none;
+      border-radius: 0;
+      margin-left: 300px;
+      position: relative;
+      left: 85px;
+    }
+
+    #j[_ngcontent-ng-c3783823627] {
+      height: 60px;
+      border: none;
+      border-radius: 0;
+      margin-right: 200px;
+      width: 150px;
+      outline-style: solid;
+    }
+
+    .btn-success[_ngcontent-ng-c3783823627] {
+      background-color: #660066;
+      color: white;
+    }
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .foodimages[_ngcontent-ng-c3783823627] {
+      display: flex;
+      gap: 30px;
+    }
+
+    .foodimages[_ngcontent-ng-c3783823627]   img[_ngcontent-ng-c3783823627] {
+      width: 400px;
+      height: 290px;
+    }
+
+    .categiess[_ngcontent-ng-c3783823627]   a[_ngcontent-ng-c3783823627] {
+      color: #4a4a4a;
+      font-family: ProximaNova-Medium, Helvetica, Arial, sans-serif;
+    }
+
+    .tgs[_ngcontent-ng-c3783823627] {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .categiess[_ngcontent-ng-c3783823627] {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .cardtitle[_ngcontent-ng-c3783823627] {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .main-content[_ngcontent-ng-c3783823627] {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 100px;
+      margin-left: 180px;
+    }
+
+    .imnb[_ngcontent-ng-c3783823627] {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .category-section[_ngcontent-ng-c3783823627] {
+      width: 20%;
+    }
+    
+    .popup[_ngcontent-ng-c3783823627]{
+      background-color:white;
+      height:60px;
+      width:100px;
+      display:flex;
+      flex-direction:column;
+      align-items: center;
+      position:absolute;
+      top:120px;
+      left:1200px;
+      border:2px thin black;
+      visibility: visible;
+    }
+ n[_ngcontent-ng-c3783823627]   .popup[_ngcontent-ng-c3783823627]   a[_ngcontent-ng-c3783823627]{
+      color:#4a4a4a
+    }</style><style ng-app-id="ng">.bu[_ngcontent-ng-c1261102722]{display:flex;flex-direction:row;align-items:center;justify-content:center;border-radius:20px;gap:5px;width:100px;height:35px;background-color:#fa0}.lower[_ngcontent-ng-c1261102722]{display:flex;align-items:center;gap:25px}nav[_ngcontent-ng-c1261102722]{position:sticky;top:0;display:flex;flex-direction:row;align-items:center;justify-content:space-evenly;width:100%;border:.25px solid lightslategrey;border-right:none;border-left:none;border-color:#d3d3d3}nav[_ngcontent-ng-c1261102722]   h6[_ngcontent-ng-c1261102722]{color:#a9a9a9}nav[_ngcontent-ng-c1261102722]   img[_ngcontent-ng-c1261102722]{height:55px;width:200px}#g[_ngcontent-ng-c1261102722]{height:60px;width:150px;border:none;border-radius:0;margin-left:300px;position:relative;left:85px}#j[_ngcontent-ng-c1261102722]{height:60px;border:none;border-radius:0;margin-right:200px;width:150px;outline-style:solid}.btn-success[_ngcontent-ng-c1261102722]{background-color:#606;color:#fff}.logos[_ngcontent-ng-c1261102722]{display:flex;flex-direction:row;align-items:center;gap:10px;margin-left:970px}.foodimages[_ngcontent-ng-c1261102722]{display:flex;gap:30px;position:sticky;top:0}.foodimages[_ngcontent-ng-c1261102722]   img[_ngcontent-ng-c1261102722]{width:400px;height:290px}.categiess[_ngcontent-ng-c1261102722]   a[_ngcontent-ng-c1261102722]{color:#4a4a4a;font-family:ProximaNova-Medium,Helvetica,Arial,sans-serif}.tgs[_ngcontent-ng-c1261102722]{display:flex;flex-direction:row}#hotstar[_ngcontent-ng-c1261102722]{flex:3;position:sticky;top:0;background-color:#fff;z-index:1000;padding:10px 0}.categiess[_ngcontent-ng-c1261102722]{display:flex;flex-direction:column;gap:15px}.cardtitle[_ngcontent-ng-c1261102722]{display:flex;flex-direction:row;flex-wrap:wrap}.main-content[_ngcontent-ng-c1261102722]{display:flex;flex-direction:row;align-items:flex-start;gap:100px;margin-left:180px}.imnb[_ngcontent-ng-c1261102722]{display:flex;gap:20px;flex-wrap:wrap}.category-section[_ngcontent-ng-c1261102722]{width:20%;flex:1;overflow:auto;position:sticky;top:70px;max-height:100vh}.popup[_ngcontent-ng-c1261102722]{background-color:#fff;height:60px;width:100px;display:flex;flex-direction:column;align-items:center;position:absolute;top:120px;left:1200px;border:2px thin black;visibility:visible}.popup[_ngcontent-ng-c1261102722]   a[_ngcontent-ng-c1261102722]{color:#4a4a4a}.flex-item[_ngcontent-ng-c1261102722]:hover   #imgzoom[_ngcontent-ng-c1261102722]{transition:transform .3s ease-in-out;border-radius:10px}#imgzoom[_ngcontent-ng-c1261102722]{cursor:pointer;border-radius:10px}#imgzoom[_ngcontent-ng-c1261102722]{transition:all .2s cubic-bezier(.15,.69,.83,.67)}.breakfast-section[_ngcontent-ng-c1261102722]{display:flex;flex-direction:column;gap:50px;overflow-y:auto;margin-right:200px}.displayareashink[_ngcontent-ng-c1261102722]{width:calc(100% - 300px);right:500px;background-color:green}.userbtn[_ngcontent-ng-c1261102722]{background-color:transparent;border:none}#yp[_ngcontent-ng-c1261102722]:hover{color:orange}#yp[_ngcontent-ng-c1261102722]{text-decoration:none;color:#000;cursor:pointer}.dropdown[_ngcontent-ng-c1261102722]:hover   .dropdown-menu[_ngcontent-ng-c1261102722]{display:block;width:10px;margin-top:0;margin-right:100px;border-radius:4px}.dropdown[_ngcontent-ng-c1261102722]:hover   .userbtn[_ngcontent-ng-c1261102722]{background-color:#9b9b9b;color:#fff;border-radius:4px}.userbtn[_ngcontent-ng-c1261102722]:hover{background-color:#9b9b9b;color:#fff}</style><style ng-app-id="ng">.side-cart[_ngcontent-ng-c1815686187]{position:fixed;right:-350px;top:0;width:300px;height:100%;background-color:#fff;box-shadow:-2px 0 5px #87ceeb;transition:right .3s ease-in-out;z-index:1000}.side-cart.show[_ngcontent-ng-c1815686187]{right:0}</style></head>
+<body>
+  <app-root _nghost-ng-c3783823627 ng-version="17.3.11" ng-server-context="ssg"><html _ngcontent-ng-c3783823627><head _ngcontent-ng-c3783823627></head><body _ngcontent-ng-c3783823627><div _ngcontent-ng-c3783823627 class="row"><nav _ngcontent-ng-c3783823627><img _ngcontent-ng-c3783823627 src="./assets/fresh.jpeg"><h6 _ngcontent-ng-c3783823627>Deliver to: Hyderabad</h6><div _ngcontent-ng-c3783823627 class="p"><button _ngcontent-ng-c3783823627 type="button" id="g" class="btn btn-warning">Fresh Pass</button></div><button _ngcontent-ng-c3783823627 type="button" id="j" class="btn btn-success">Try FreshClub</button></nav></div><router-outlet _ngcontent-ng-c3783823627></router-outlet><!----></body></html></app-root>
+<script src="polyfills-6EAL64PA.js" type="module"></script><script src="main-57NMDOVN.js" type="module"></script>
+
+</body></html><!-- AIzaSyDFDLR_vNaB1T42MweQA_Oqqip3PkiMytk -->

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+     .bu{      
+     display:flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: center;
+     border-radius: 20px;
+     gap:5px;
+     width:100px;
+     height:35px;
+     background-color: hwb(40 0% 0%);
+  
+     }
+    </style>
+</head>
+<body>
+    <div class="container ml-5px">
+        <div id="lo" class="row" >
+            <div class="logos">
+      
+              <button type="button" style="border:none; padding:20px; background-color:white;">
+                <i class="fa fa-thin fa-magnifying-glass"></i>Search
+              </button>
+      
+              <button style="border:none; padding:20px; background-color:white;">Offers</button>
+      
+              <button type="button" style="border:none; padding:20px; background-color:white;">
+                <i class="fa fa-thin fa fa-life-ring fa-lg"></i>
+              </button>
+      
+              <button class="userbtn" style="border:none; padding:20px; background-color:white;">
+                <i class="fa fa-thin fa fa-user fa-lg"></i>
+              </button>
+      
+              <button type="button" style="border:none; padding:20px; background-color:white;">
+                <i class="fa-sharp fa-thin fa fa-cart-shopping fa-lg"></i>
+              </button>
+              
+            </div>
+          </div>
+        <div class="row">
+            <div class="col-md-4 mt-5">
+                <img src='data:{{a}};base64,{{datain.image}}' height="250px" width="250px" >
+            </div>
+            <div style="margin-bottom:150px" class="col-md-8 mt-4">
+                <h1>{{datain.itemname}}</h1>
+                <p>{{datain.type}}</p>
+                <h4><i class="fa-light fa fa-indian-rupee-sign"></i>{{datain.price}}</h4>
+
+                <div *ngIf="datain.quantity>0" >
+                    <div class="bu"> 
+                        <button type="button" (click)="desc(datain)" style="border-radius: 10px;border:none;color:white; background-color:hwb(40 0% 0%)">-</button>
+                        <span>{{datain.quantity}}</span> 
+                        <button type="button" (click)="inc(datain)" style="border-radius:10px;border:none;color:white;background-color: hwb(40 0% 0%);">+</button>
+                   </div>
+                   
+                </div>
+               
+                <div *ngIf="datain.quantity==0"> 
+                    <button  *ngIf="isButtonVisible" type="button" (click)="add(datain)" style="margin-top:20px;height:40px;width:100px;border-radius: 20px;background-color: orange;color:white;border:none ">Add</button>
+
+                </div>
+                 
+                <!-- <div *ngIf="addclick">
+                    <div class="bu"> 
+                        <button type="button" (click)="desc(datain)" style="border-radius: 10px;border:none;color:white; background-color:hwb(40 0% 0%)">-</button>
+                        <span>{{datain.quantity}}</span> 
+                        <button type="button" (click)="inc(datain)" style="border-radius:10px;border:none;color:white;background-color: hwb(40 0% 0%);">+</button>
+                   </div>
+                   
+                </div> -->
+
+                <h5 class="mt-4">DETAILS ABOUT THIS MEAL</h5>
+                <P>{{datain.details}}</P>
+            
+            
+                <h5 class="mt-4">INGRIEDENTS</h5>
+                <p >{{datain.ingriedents}}</p>
+            </div>
+        </div>
+    </div>
+    <!-- <app-side-cart [showCart]="arb" #cart></app-side-cart> -->
+    <div class="container-fluid">
+      <div class="footer" style="display:flex;gap:50px ;margin-left:250px;margin-top:20px">
+
+  
+        <div>
+          <h6>COMPANY</h6>
+  
+          
+          <ul>
+            <li><a href="">Faq </a></li>
+            <li><a href="">About </a></li>
+            <li><a href="">Careers </a></li>
+            <li><a href="">Blog </a></li>
+          </ul>
+       
+        
+        </div>
+  
+  
+        <div>
+          <h6>HELP AND CONTACT</h6>
+  
+          
+          <ul>
+            <li><a href="">Faq </a></li>
+            <li><a href="">About </a></li>
+            <li><a href="">Careers </a></li>
+            <li><a href="">Blog </a></li>
+          </ul>
+        </div>
+  
+        <div> 
+          <h6>MORE FROM US</h6>
+  
+          
+          <ul>
+            <li><a href="">Faq </a></li>
+            <li><a href="">About </a></li>
+            <li><a href="">Careers </a></li>
+            <li><a href="">Blog </a></li>
+          </ul>
+        </div>
+  
+      
+        <div style="margin-left:100px">
+        <h6>Subscribe to our droolworthy newsletter</h6>
+        <input type="text" class="form-control" name="nam" style="border-color: burlywood;">
+      </div>
+    </div>
+    </div>
+
+ 
+    <app-side-cart [showCart]="arb" #cart></app-side-cart>
+
+</body>
+</html>

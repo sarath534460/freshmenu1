@@ -1,0 +1,174 @@
+<html>
+    <head>
+        <style>
+     nav {
+      position:sticky;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 100%;
+      border: 0.25px solid lightslategrey;
+      border-right: none;
+      border-left: none;
+      border-color: lightgray;
+      
+    }
+
+    nav h6 {
+      color: darkgrey;
+    }
+
+    nav img {
+      height: 55px;
+      width: 200px;
+    }
+
+    #g {
+      height: 60px;
+      width: 150px;
+      border: none;
+      border-radius: 0;
+      margin-left: 300px;
+      position: relative;
+      left: 85px;
+    }
+
+    #j {
+      height: 60px;
+      border: none;
+      border-radius: 0;
+      margin-right: 200px;
+      width: 150px;
+      outline-style: solid;
+    }
+
+    .btn-success {
+      background-color: #660066;
+      color: white;
+    }
+
+    /* .logos {
+    
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      margin-left: 970px;
+      
+    
+    #lo{
+      position:sticky;
+      top:0
+    }
+    } */
+    .foodimages {
+      display: flex;
+      gap: 30px;
+    }
+
+    .foodimages img {
+      width: 400px;
+      height: 290px;
+    }
+
+    .categiess a {
+      color: #4a4a4a;
+      font-family: ProximaNova-Medium, Helvetica, Arial, sans-serif;
+    }
+
+    .tgs {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .categiess {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .cardtitle {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .main-content {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 100px;
+      margin-left: 180px;
+    }
+
+    .imnb {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .category-section {
+      width: 20%;
+    }
+    
+    .popup{
+      background-color:white;
+      height:60px;
+      width:100px;
+      display:flex;
+      flex-direction:column;
+      align-items: center;
+      position:absolute;
+      top:120px;
+      left:1200px;
+      border:2px thin black;
+      visibility: visible;
+    }
+ n
+    .popup a{
+      color:#4a4a4a
+    }
+        </style>
+    </head>
+    <body>
+
+        <div class="row">
+            <nav >
+              <img src="./assets/fresh.jpeg">
+              <h6>Deliver to: Hyderabad</h6>
+              <div class="p">
+                <button type="button" id="g" class="btn btn-warning">Fresh Pass</button>
+              </div>
+              <button type="button" id="j" class="btn btn-success">Try FreshClub</button>
+            </nav>
+          </div>
+          
+         
+        
+         
+         
+        
+          <!-- <div id="lo" class="row" >
+            <div class="logos">
+              <button type="button" style="border:none; padding:20px; background-color:white;">
+                <i class="fa fa-thin fa-magnifying-glass"></i>Search
+              </button>
+              <button style="border:none; padding:20px; background-color:white;">Offers</button>
+              <button type="button" style="border:none; padding:20px; background-color:white;">
+                <i class="fa fa-thin fa fa-life-ring fa-lg"></i>
+              </button>
+              <button class="userbtn" style="border:none; padding:20px; background-color:white;">
+                <i class="fa fa-thin fa fa-user fa-lg"></i>
+              </button>
+              <button type="button" style="border:none; padding:20px; background-color:white;">
+                <i class="fa-sharp fa-thin fa fa-cart-shopping fa-lg"></i>
+        
+              </button>
+            </div>
+          </div> -->
+        
+          <router-outlet></router-outlet>
+
+    </body>
+</html>

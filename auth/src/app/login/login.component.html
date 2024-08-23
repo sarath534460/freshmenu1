@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div *ngIf="id=='signup' else notsignup ">
+         <div class="accordion">
+            <form (ngSubmit)="register(ref.value,ref)" #ref="ngForm">
+            <input type="text" style="margin-top: 60px;" class="form-control" name="fname" required ngModel placeholder="First Name">
+
+            <div *ngIf="ref.controls['fname']?.['errors'] && validater">
+                <small   style="color:red ;padding: 0;" *ngIf="ref.controls['fname']?.['errors']?.['required']">name is required.</small>
+
+             </div>
+
+            <input type="text" class="form-control " ngModel name="lname" required placeholder="Last Name">
+            <div *ngIf="ref.controls['lname']?.['errors'] && validater">
+                <small  style="color:red;margin-top: -10px;" *ngIf="ref.controls['lname']?.['errors']?.['required']">lastname is required.</small>
+
+             </div>
+
+            <input type="text" class="form-control " name="no" required pattern="^([6-9]{1})([0-9]{9})$" ngModel placeholder="10 digit Mobile Number">
+            <div *ngIf="ref.controls['no']?.['errors']  && validater">
+                <small  style="color:red" *ngIf="ref.controls['no']?.['errors']?.['required']">Mobile no is required.</small>
+                <small  style="color:red" *ngIf="ref.controls['no']?.['errors']?.['pattern']">Enter valid 10 digit no</small>
+                <!-- &&  ref.controls['city']?.['touched']  -->
+             </div>
+
+            <input type="text" class="form-control " name="email" email required ngModel placeholder="Email">
+            <div *ngIf="ref.controls['email']?.['errors'] && validater">
+                <small  style="color:red" *ngIf="ref.controls['email']?.['errors']?.['required']">email is required.</small>
+                <small  style="color:red" *ngIf="ref.controls['email']?.['errors']?.['email']">enter valid email address</small>
+
+             </div>
+
+            <input type="text" class="form-control " name="password" required  pattern="^(?=.*[A-Z])(?=.*[@#$%^&*!])[A-Za-z\d@#$%^&*!]*$"  minlength="8" ngModel placeholder="Password">
+            <div *ngIf="ref.controls['password']?.['errors'] && validater">
+                <small  style="color:red" *ngIf="ref.controls['password']?.['errors']?.['pattern']">one uppercase letter and one special character (&commat;&num;&dollar;&percnt;&amp;&ast;&excl;)  is required</small><br>
+
+                <small  style="color:red" *ngIf="ref.controls['password']?.['errors']?.['required']">password is required.</small><br>
+                <small  style="color:red" *ngIf="ref.controls['password']?.['errors']?.['minlength']">`minimum length 8 is required`</small><br>
+
+
+             </div>
+
+            <button style="color:white;background-color: orange;border:none ;width:310px;margin-left: 10px;height:40px" type="submit">Sign up</button>
+            <hr>
+            <P class="ml-3">Already have an account?<span style="color:darkorange;margin-left: 10px;">Log In</span></P>
+           </form>
+         </div>     
+    </div>
+
+    <ng-template #notsignup>
+
+        <div class="accordion" id="login" *ngIf="showotp">
+            <a href="/auth/google">
+                <button style="background-color: #4285F4; color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer;">
+                    Login with Google
+                </button>
+            </a>
+            <form (ngSubmit)="login(ref.value,ref);ref.reset()" #ref="ngForm">
+            <input type="text" class="form-control mt-5" name="no" ngModel placeholder="Mobile Number">
+            <!-- <input type="text" class="form-control" name="password" ngModel placeholder="Password"> -->
+          
+
+            <button style="color:white;background-color: orange;border:none ;width:310px;margin-left: 10px;height:40px;margin-top: 30px;" type="submit">Send Otp</button>
+            <hr>
+           </form>
+        </div> 
+       
+        <div *ngIf="otp">
+            <div class="accordion " id="login">
+                
+                <input type="text" class="form-control" style="margin-top: 50px;" name="otp" #re placeholder="Enter otp">
+    
+                <button style="color:white;background-color: orange;border:none ;width:310px;margin-left: 10px;height:40px;margin-top: 30px;" (click)="otplogin(re.value)" type="submit">Login</button>
+             
+            
+            </div> 
+        </div>
+
+     </ng-template>
+
+
+</body>
+</html>

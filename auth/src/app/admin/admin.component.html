@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .product-details {
+            width: 100%;
+            height: 200px; /* Adjust the height as needed */
+            font-size: 16px;
+            /* padding: 10px;
+            box-sizing: border-box; */
+        }
+        .product-detailss {
+            width: 100%;
+            height: 100px; /* Adjust the height as needed */
+            font-size: 16px;
+            /* padding: 10px;
+            box-sizing: border-box; */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-5">
+          <div class="col-md-4">
+
+          </div>
+          <div class="col-md-4">
+            <h3>Admin Panel</h3>
+          </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-4">
+
+            </div>
+            <div class="col-md-4">
+                <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)">
+                    <label>
+                      Categoryname:
+                     <input type="text" class="form-control" name="categoryname" ngModel required>
+                    </label>
+                    <label>
+                        Itemname:
+                       <input type="text" class="form-control" name="itemname" ngModel required>
+                    </label>
+                    <label>
+                        ItemImage:
+                       <input type="file" (change)=imagfile($event) name="hjk" required>
+                    </label>
+                    <label>
+                        Type:
+                       <input type="text"  class="form-control" name="type" ngModel  required>
+                    </label>
+                    <label>
+                        Price:
+                       <input type="number" class="form-control" name="price" ngModel required>
+                    </label>
+                    <label>
+                        Details About The Product:
+                       <textarea name="details" class="product-details" ngModel required></textarea>
+                    </label>
+                    <label>
+                        Ingriedents:
+                       <textarea name="ingriedents" class="product-detailss" ngModel required></textarea>
+                    </label>
+                    <br>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+                  
+            </div>
+        </div>
+    </div>
+</body>
+</html>
