@@ -9,10 +9,8 @@ let nodemon=require('nodemon')
 const passport = require('passport');
 let multer=require('multer')
 var jwt = require('jsonwebtoken');
+require('dotenv').config();
 
-const accountSid = 'ACca5ed9f8c0738894507f19fdabb857ac';
-const authToken = '155c367812d3af109edf3a8914cd3aaa';
-const clients = require('twilio')(accountSid, authToken);
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 app.use(cors( {origin: 'http://localhost:4200', // Allow requests from this origin
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
