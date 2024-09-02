@@ -7,7 +7,9 @@ import { AdminComponent } from './admin/admin.component';
 import { ProductviewComponent } from './productview/productview.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ProfiledetailsComponent } from './profiledetails/profiledetails.component';
+
 import { OrderhistoryComponent } from './orderhistory/orderhistory.component';
+
 
 
 const routes: Routes = [{path:"",component:HomeComponent},

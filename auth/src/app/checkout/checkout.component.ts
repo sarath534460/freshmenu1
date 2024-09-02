@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
+
 import { jwtDecode } from 'jwt-decode';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -28,14 +29,17 @@ export class CheckoutComponent {
   lastClickedIndex: number | null = null;
   http: HttpClient;
   deliverydetails: any;
+
   result: any;
   token: any
   n:any
+
   constructor(act:ActivatedRoute,http:HttpClient){
     this.http=http
     this.act=act
     this.showaddress=true
     this.showpayment=false
+
     this.token=  localStorage.getItem('token')
     let decodedToken = jwtDecode(this.token);
     
@@ -48,6 +52,7 @@ export class CheckoutComponent {
    
     
     // })
+
   }
 
   ngOnInit(){
@@ -86,13 +91,13 @@ export class CheckoutComponent {
     }
     else{
     this.deliverydetails=k.value
+
+    this.showaddress=false
+    this.showpayment=true
+    
     this.showaddress=false
     this.showpayment=true
 
-   
-
-   
-   
     // setTimeout(() => {
     //   if (this.stp) {
     //     const contentHeight = this.stp.nativeElement.scrollHeight;
@@ -126,6 +131,7 @@ export class CheckoutComponent {
     }).then((result)=>{
       if(result.isConfirmed){
 
+
         // this.http.post('http://localhost:47/updatecartcheckout',{responseType:"text"}).subscribe((jh:any)=>{    
         // })
         const timestamp = new Date().getTime().toString();
@@ -141,10 +147,15 @@ export class CheckoutComponent {
           console.log(jh)
         })
 
+
+        this.http.post('http://localhost:47/updatecartcheckout',{responseType:"text"}).subscribe((jh:any)=>{    
+        })
+
         window.location.href=`http://localhost:4200`
       }
       else if (result.isDismissed) {
         // Handle cancellation logic here
+
         // this.http.post('http://localhost:47/updatecartcheckout',{responseType:"text"}).subscribe((jh:any)=>{    
         // })
         const timestamp = new Date().getTime().toString();
@@ -159,6 +170,11 @@ export class CheckoutComponent {
         this.http.post('http://localhost:48/orders',a,{headers}).subscribe((jh:any)=>{
           console.log(jh)
         })
+
+
+        this.http.post('http://localhost:47/updatecartcheckout',{responseType:"text"}).subscribe((jh:any)=>{    
+        })
+        
 
         window.location.href=`http://localhost:4200`
        

@@ -18,12 +18,13 @@ export class LoginComponent {
   mobilecame: any;
   otp: boolean=false;
   validater: boolean=false;
+
   username: any;
   token: any;
 
 
+ 
  constructor(k:ActivatedRoute,http:HttpClient,router:Router,auth:AuthServiceService){
-
   this.auth=auth;
   this.http=http
   this.router=router
@@ -34,15 +35,18 @@ export class LoginComponent {
 }
  
 
+
 register(u:any,b:any){
   if(b.invalid){
    this.validater=true
   }
   else{
 console.log(u)
+
 b.reset();
 this.validater=false
 this.username=u.fname
+
 this.http.post('http://localhost:48/register',u,{responseType:"text"}).subscribe((jh:any)=>{   
  let s= JSON.parse(jh)
   alert(s.message)
@@ -50,7 +54,6 @@ this.http.post('http://localhost:48/register',u,{responseType:"text"}).subscribe
 
   }
 }
-
 
 
 
@@ -99,7 +102,9 @@ login(l:any,b:any){
 }
 
 otplogin(y:any){
-  this.http.post('http://localhost:48/verifyotp',{mobile:this.mobilecame,otp:y,k:this.username},{responseType:"text"}).subscribe((jh:any)=>{   
+
+  this.http.post('http://localhost:48/verifyotp',{mobile:this.mobilecame,otp:y,k:this.username},{responseType:"text"}).subscribe((jh:any)=>{  
+
     let s= JSON.parse(jh)
      alert(s.message)
           
@@ -133,5 +138,6 @@ gmailbutton(){
    
 
 }
+
 
 }

@@ -38,9 +38,10 @@ export class AuthServiceService {
     let s=new HomeComponent()
     s.fromsidetoinc(p,this.tws,this.arr)
 
+   
+    
     let k= new ProductviewComponent()
     k.updateprodfroside(p,this.datafromproduct)
-    
   }
  
   tochangedescfrsidetohome(s:any){

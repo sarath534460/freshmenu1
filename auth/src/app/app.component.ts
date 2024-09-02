@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+
 export class AppComponent {
 
   @ViewChild('cart') cart!: HomeComponent;
@@ -19,4 +20,5 @@ export class AppComponent {
   loginWithGoogle() {
     window.location.href = 'http://localhost:47/auth/google'; // Adjust the URL to your backend
   }
+
 }

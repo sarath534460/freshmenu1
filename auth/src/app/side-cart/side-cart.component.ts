@@ -32,6 +32,7 @@ export class SideCartComponent {
     this.http=http
     this.router=router
     this.token=localStorage.getItem('token');
+
     let headers=new HttpHeaders({'Authorization':this.token})
 
     this.http.get('http://localhost:48/getitemsforsidecart',{headers}).subscribe((jh:any)=>{   
@@ -49,14 +50,13 @@ export class SideCartComponent {
   }
 
   addItem() {
-   
-  
      let [item,categoryname]= this.gh.getdata()
         console.log(item)
         this.showCart = true;
        //  this.carts.push(this.gh.getdata())
          item.categoryname=categoryname
          try{
+
          const exists = this.carts.some((obj:any) => obj.itemname==item.itemname);
           if(exists){
             console.log("there")
@@ -64,6 +64,7 @@ export class SideCartComponent {
           else{
          this.carts.push(item)
           }
+
          }
          catch(e){
            console.log(e)
@@ -79,12 +80,6 @@ export class SideCartComponent {
      this.http.post('http://localhost:48/addtocart',{item},{headers}).subscribe((jh:any)=>{    
        
      })
-     
-    //  this.http.get('http://localhost:48/getitemsforsidecart',{headers}).subscribe((jh:any)=>{    
-    //    this.carts=jh.data
-    //  })
-     
-    //  this.cdr.detectChanges(); // Trigger change detection
      
   }
      
@@ -124,7 +119,9 @@ export class SideCartComponent {
 
    
     in(r:any){
+
       try{
+
       console.log(r)
       console.log(r.categoryname,"from sidecart")
       this.gh.tochangeincfrsidetohome(r)
@@ -145,10 +142,12 @@ export class SideCartComponent {
           }
        })
      this.calculateTotalPrice();// to change the total price in the cart when inc
+
       }
       catch(e){
         
       }
+
     }
 
 
@@ -218,21 +217,19 @@ export class SideCartComponent {
 
    inccartfromprod(a:any){//for changing the increment values in screen when came the array from database
     console.log(a)
-   
 
       this.carts.forEach(y=>{
         if(y.itemname==a.itemname&&y.quantity==a.quantity){
-        
-          
+         
         }
         else if(y.itemname==a.itemname&&y.quantity!=a.quantity){
 
-           y.quantity++
+          y.quantity++
+
           y.totalprice=y.price*y.quantity
           this.calculateTotalPrice()
         }
       })
-     
 
    }
 
@@ -241,4 +238,5 @@ export class SideCartComponent {
    fromprodadditem(k:any){
     this.carts.push(k)
    }
+
 }

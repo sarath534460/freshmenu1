@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule} from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import {
@@ -9,7 +10,7 @@ import {
   
 } from 'angularx-social-login';
 import { LoginComponent } from './login/login.component';
-import { AppComponent } from './app.component';
+
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { SideCartComponent } from './side-cart/side-cart.component';
@@ -30,7 +31,8 @@ import { OrderhistoryComponent } from './orderhistory/orderhistory.component';
     ProductviewComponent,
     CheckoutComponent,
     ProfiledetailsComponent,
-    OrderhistoryComponent
+    OrderhistoryComponent,
+    ProfiledetailsComponent
     
   ],
   imports: [

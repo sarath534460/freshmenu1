@@ -157,7 +157,7 @@ export class HomeComponent {
   let cat={categ:categoryname}
   this.cart.inccart(l,categoryname);//this method send to sidecart for the increment because in side cart its coming from database
   let payload={l,cat}
-    let headers=new HttpHeaders({'connection':'Keep-Alive','Keep-Alive':'timeout=5,max=100','Authorization':  this.token})
+    let headers=new HttpHeaders({'Authorization':  this.token})
    this.http.post('http://localhost:48/incfromhome',{payload},{headers}).subscribe((jh:any)=>{    
    })
    
