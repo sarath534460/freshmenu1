@@ -63,11 +63,13 @@ export class ProductviewComponent {
 
   desc(y:any){
     y.quantity--
+    y.totalprice=y.quantity*y.price
+    this.cart.calculateTotalPrice()
+
     if(y.quantity==0){
       this.isButtonVisible=true
     }
     this.cart.descr(y,8)
-    this.cart.calculateTotalPrice()
     let cat={categ:this.categoryname}
     let payload={y,cat}
 
@@ -83,14 +85,15 @@ export class ProductviewComponent {
 
   inc(y:any){
     y.quantity++
+    y.totalprice=y.quantity*y.price
+    this.cart.calculateTotalPrice()
     this.cart.showCart=true
     this.cart.inccartfromprod(y)
     let cat={categ:this.categoryname}
-   let payload={y,cat}
-   this.cart.calculateTotalPrice()
+    let payload={y,cat}
     this.token=localStorage.getItem('token');
 
-     let headers=new HttpHeaders({'Authorization':this.token})
+    let headers=new HttpHeaders({'Authorization':this.token})
 
     this.http.post('http://localhost:48/incfromproduct',payload,{headers}).pipe(repeat(20)).subscribe((jh:any)=>{    
     })
@@ -99,17 +102,21 @@ export class ProductviewComponent {
   }
 
   add(item:any){
-    console.log(item)
     this.cart.showCart=true
+    item.totalprice=item.price
+    
+    console.log(item)
+   
     this.cart.fromprodadditem(item)
+    
    this.isButtonVisible=false
-   this.datain.quantity++
+  // this.datain.quantity++
    this.token=localStorage.getItem('token');
    let headers=new HttpHeaders({'Authorization':this.token})
    this.http.post('http://localhost:48/addtocart',{item},{headers}).subscribe((jh:any)=>{    
      
    })
-    
+   this.datain.quantity++
   }
 
   updateprodfroside(p:any,productitem:any){
@@ -119,6 +126,9 @@ export class ProductviewComponent {
    if(p.itemname==productitem.itemname){
       productitem.quantity++
    }
+  else if(p.itemname!=productitem.itemname){
+   
+  }
   }
   catch(e){
 

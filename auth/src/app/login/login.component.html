@@ -10,7 +10,7 @@
          <div class="accordion">
             <form (ngSubmit)="register(ref.value,ref)" #ref="ngForm">
             <input type="text" style="margin-top: 60px;" class="form-control" name="fname" required ngModel placeholder="First Name">
-
+             
             <div *ngIf="ref.controls['fname']?.['errors'] && validater">
                 <small   style="color:red ;padding: 0;" *ngIf="ref.controls['fname']?.['errors']?.['required']">name is required.</small>
 
@@ -56,17 +56,19 @@
     <ng-template #notsignup>
 
         <div class="accordion" id="login" *ngIf="showotp">
-            <a href="/auth/google">
-                <button style="background-color: #4285F4; color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer;">
-                    Login with Google
-                </button>
-            </a>
-            <form (ngSubmit)="login(ref.value,ref);ref.reset()" #ref="ngForm">
+            <!-- <a href="http://localhost:48/auth/google"> -->
+                <button class="gmail-login-button" (click)="gmailbutton()">
+                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Gmail Logo" />
+                    Sign in with Gmail
+                 </button>
+            <!-- </a> -->
+            <div class="divider" style="justify-content:center;">OR</div>
+            <form (ngSubmit)="login(ref.value,ref);ref.reset()" #ref="ngForm" class="loginform" style="margin-bottom:60px ;">
             <input type="text" class="form-control mt-5" name="no" ngModel placeholder="Mobile Number">
             <!-- <input type="text" class="form-control" name="password" ngModel placeholder="Password"> -->
           
 
-            <button style="color:white;background-color: orange;border:none ;width:310px;margin-left: 10px;height:40px;margin-top: 30px;" type="submit">Send Otp</button>
+            <button style="color:white;background-color: orange;border:none ;width:310px;margin-left: 10px;height:40px;" type="submit">Send Otp</button>
             <hr>
            </form>
         </div> 

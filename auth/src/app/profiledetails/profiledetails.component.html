@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row">
             
-            <div style="margin-top:150px;margin-left:150px;display:flex;justify-content: center;align-items: center;flex-direction: row;gap:400px">
+            <div *ngIf="d.data.authMethod=='mobile'" style="margin-top:150px;margin-left:150px;display:flex;justify-content: center;align-items: center;flex-direction: row;gap:400px">
                 
 
                 <div>
@@ -27,6 +27,24 @@
      
                  </div>
             </div>
+
+            <div *ngIf="d.data.authMethod=='gmail'" style="margin-top:150px;margin-left:150px;display:flex;justify-content: center;align-items: center;flex-direction: row;gap:400px">
+                
+
+                <div>
+                    <h5 style=" font-size: 18px; margin-bottom:20px;   font-family: ProximaNova-Regular, Helvetica, Arial, sans-serif;   color: #4a4a4a;">Basic Info</h5>
+                    <p style="color:#9b9b9b;font-family: ProximaNova-Semibold, Helvetica, Arial, sans-serif;font-size: 14px;"> NAME</p>
+                    <p style="color:#9b9b9b;font-family: ProximaNova-Semibold, Helvetica, Arial, sans-serif;font-size: 14px;">EMAIL</p>
+                </div>
+                <div>
+                    <p style="color:#4a4a4a; margin-top: 40px;    font-family: ProximaNova-Regular, Helvetica, Arial, sans-serif;   font-size: 16px;">{{d.data.displayname}}</p> 
+                     <p style="color:#4a4a4a;    font-family: ProximaNova-Regular, Helvetica, Arial, sans-serif;    font-size: 16px;">{{d.data.gmail}}</p>
+     
+                 </div>
+            </div>
+
+
+
         </div>
     </div>
 </body>

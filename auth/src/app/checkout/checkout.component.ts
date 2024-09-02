@@ -86,9 +86,13 @@ export class CheckoutComponent {
     }
     else{
     this.deliverydetails=k.value
-    
     this.showaddress=false
     this.showpayment=true
+
+   
+
+   
+   
     // setTimeout(() => {
     //   if (this.stp) {
     //     const contentHeight = this.stp.nativeElement.scrollHeight;
@@ -121,15 +125,41 @@ export class CheckoutComponent {
       cancelButtonText: 'No, cancel!',
     }).then((result)=>{
       if(result.isConfirmed){
-        this.http.post('http://localhost:47/updatecartcheckout',{responseType:"text"}).subscribe((jh:any)=>{    
+
+        // this.http.post('http://localhost:47/updatecartcheckout',{responseType:"text"}).subscribe((jh:any)=>{    
+        // })
+        const timestamp = new Date().getTime().toString();
+        const randomNum = Math.floor(Math.random() * 1000000);
+        let orderid= 'ORDER-' + timestamp + '-' + randomNum;
+
+         this. token=localStorage.getItem('token')
+       let headers= new HttpHeaders({'Authorization': this.token})
+    
+        let a={objt1:this.deliverydetails,objt2:orderid,objt3:this.datain}
+    
+        this.http.post('http://localhost:48/orders',a,{headers}).subscribe((jh:any)=>{
+          console.log(jh)
         })
+
         window.location.href=`http://localhost:4200`
       }
       else if (result.isDismissed) {
         // Handle cancellation logic here
-        this.http.post('http://localhost:47/updatecartcheckout',{responseType:"text"}).subscribe((jh:any)=>{    
+        // this.http.post('http://localhost:47/updatecartcheckout',{responseType:"text"}).subscribe((jh:any)=>{    
+        // })
+        const timestamp = new Date().getTime().toString();
+        const randomNum = Math.floor(Math.random() * 1000000);
+        let orderid= 'ORDER-' + timestamp + '-' + randomNum;
+         this.token=localStorage.getItem('token')
+
+       let headers= new HttpHeaders({'Authorization':  this.token})
+    
+        let a={objt1:this.deliverydetails,objt2:orderid,objt3:this.datain}
+    
+        this.http.post('http://localhost:48/orders',a,{headers}).subscribe((jh:any)=>{
+          console.log(jh)
         })
-        
+
         window.location.href=`http://localhost:4200`
        
       }

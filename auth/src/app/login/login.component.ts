@@ -19,7 +19,11 @@ export class LoginComponent {
   otp: boolean=false;
   validater: boolean=false;
   username: any;
+  token: any;
+
+
  constructor(k:ActivatedRoute,http:HttpClient,router:Router,auth:AuthServiceService){
+
   this.auth=auth;
   this.http=http
   this.router=router
@@ -28,6 +32,7 @@ export class LoginComponent {
     console.log(this.id);
   });
 }
+ 
 
 register(u:any,b:any){
   if(b.invalid){
@@ -45,6 +50,9 @@ this.http.post('http://localhost:48/register',u,{responseType:"text"}).subscribe
 
   }
 }
+
+
+
 
 login(l:any,b:any){
   
@@ -119,5 +127,11 @@ otplogin(y:any){
 
 }
 
+
+gmailbutton(){
+    window.location.href = 'http://localhost:48/auth/google';
+   
+
+}
 
 }

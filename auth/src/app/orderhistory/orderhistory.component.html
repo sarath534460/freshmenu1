@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="orders" *ngIf="show" style="margin-top: 100px;margin-left:450px;">
+            <p style="color:#9b9b9b;font-family: ProximaNova-Semibold, Helvetica, Arial, sans-serif;font-size: 30px;"> #ORDERS</p>
+        </div>
+        <div class="orders" *ngIf="showa" style="margin-top: 100px;margin-left:500px ;">
+            <p style="color:#9b9b9b;font-family: ProximaNova-Semibold, Helvetica, Arial, sans-serif;font-size: 30px;"> #ORDER</p>
+        </div>
+        
+        <div   style="text-align:center;margin-left:400px;display:flex;flex-direction: row;gap:30px">
+            <div *ngIf="show" class="order-container" style="display:flex;flex-direction: column; gap:10px;margin-right:500px;">
+                <div *ngFor="let x of parray">
+                    <div class="accordion" (click)="onOrderClick(x)" style="background-color: aliceblue;height:auto;width:auto;padding:20px;cursor:pointer">
+                        <div style="display:flex;flex-direction:row;align-items: center; gap:20px">
+                            <div><p>{{x.orderid}}</p></div>
+                            <div><p>{{x.date}}</p></div>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="showa" style="background-color: aliceblue;padding-left: 80px;padding-right: 80px;height:auto;width:auto;display:flex;flex-direction: column;padding-bottom:30px">
+                <div class="mt-3">OrderId:{{dataorder.orderid}}</div>
+                <div> <hr style="width: 100%;height: 20px;"></div>
+                <div style="text-align:left"><h5>Delivery Address</h5></div>
+                <div style="text-align:left">{{dataorder.address.fname}}</div>
+                <div style="text-align:left">{{dataorder.address.dno}}</div>
+                <div style="text-align:left">{{dataorder.address.street}}</div>
+                <div style="text-align:left">{{dataorder.address.mobileno}}</div>
+                <div style="text-align:left">{{dataorder.address.city}}</div>
+                <div style="text-align:left">{{dataorder.address.state}}</div>
+                <div style="text-align:left">{{dataorder.address.pin}}</div><br>
+                <div> <hr></div>
+                <div >Ordered Items</div>
+                <div> <hr></div>
+                <div *ngFor="let x of dataorder.items" style="display:flex;flex-direction: row;gap:40px;margin-top: 20px;">
+                    <div> <img src='data:{{a}};base64,{{x.image}}' height="100" width="100"></div>
+                    <div>
+                        <div>{{x.itemname}}</div>
+                        <div>QTY:{{x.quantity}}</div>
+                    </div>
+                    <div><i class="fa-light fa fa-indian-rupee-sign"></i>{{x.price}}</div>
+                   
+                </div>
+                <div> <hr></div>
+                <div style="display:flex;flex-direction: row;gap:70px;margin-top: 20px;">
+                    <div>Total Price</div>
+                    <div><i class="fa-light fa fa-indian-rupee-sign"></i>{{totalprice}}</div>
+                </div>
+                
+
+            </div>
+
+        </div>
+
+
+    </div>
+</body>
+</html>

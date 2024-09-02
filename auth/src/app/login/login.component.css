@@ -40,3 +40,40 @@ form{
     gap:10px;
 
 }
+
+.gmail-login-button {
+    width:300px;
+    margin-top:20px;
+    margin-left:10px;
+    display: flex;
+    justify-content: center; /* Horizontally centers the content */
+
+    align-items: center;
+    background-color: white;
+    color: #4285F4; /* Google Blue */
+    border: 1px solid #4285F4;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .gmail-login-button img {
+    text-align: center;
+    align-items: center;
+    height: 20px;
+    margin-right: 10px;
+  }
+  
+  .gmail-login-button:hover {
+    background-color: #4285F4;
+    color: white;
+  }
+  
+  .divider{
+     margin-top: 30px;
+     margin-left: 140px;
+  }
+
+  

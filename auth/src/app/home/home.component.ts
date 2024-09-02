@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component,ViewChild } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SideCartComponent } from '../side-cart/side-cart.component';
 import { AuthServiceService } from '../auth.service.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductviewComponent } from '../productview/productview.component';
 
 @Component({
@@ -29,13 +29,30 @@ export class HomeComponent {
    token:any;
    cdr: any;
   totalitem: any;
- 
-   constructor(http ?:HttpClient, cdr ?: ChangeDetectorRef,auth ?:AuthServiceService,router ?:Router){
-    if(http&&cdr&&auth&&router){
+  totali:any
+
+   constructor(http ?:HttpClient, cdr ?: ChangeDetectorRef,auth ?:AuthServiceService,router ?:Router,activate?:ActivatedRoute){
+    if(http&&cdr&&auth&&router&&activate){
     this.router=router
     this.http=http
     this.ar=auth
     this.cdr=cdr
+    
+    // this.totali=this.cart.totalitems
+    // const urlParams = new URLSearchParams(window.location.search);
+    // this. token = urlParams.get('token');
+    //   localStorage.setItem('token', this.token);
+    
+    activate.queryParams.subscribe(params => {
+
+              if(params['token']){
+                this.token = params['token'] ;
+                localStorage.setItem('token',this.token)
+
+              }
+  
+    });
+
     try{
     if(this.cart.carts.length==undefined||this.cart.carts.length==null){
 
@@ -58,7 +75,12 @@ export class HomeComponent {
       this.result=jh
     
      
-     })
+     }) 
+     if(this.token==null){
+        
+     }
+     
+     else{
      let headers=new HttpHeaders({'Authorization':  this.token})
    
      http.get('http://localhost:48/getitemlistofuser',{headers}).subscribe((jh:any)=>{
@@ -80,7 +102,7 @@ export class HomeComponent {
        this.ar.tws=this.result;
 
 
-    },1500)
+    },2000)
   
 
     }
@@ -88,7 +110,7 @@ export class HomeComponent {
 
     }
      })
-   
+    }
     }
 
     else{
@@ -100,7 +122,8 @@ export class HomeComponent {
   defaultconstructor(){
      
   }
-
+ 
+ 
   
   addToCart(item:any,k:any){ // this is for sending to side cart and initillay also add quantity once 1
      item.totalprice=item.price
@@ -120,7 +143,7 @@ export class HomeComponent {
   productpage(y:any,l:any){
   
     let yk=JSON.stringify(y)
-    
+    this.arb=true;
     // this.Pr.fg(this.arb)
     this.router.navigate(['/product',yk,this.arb,l])
     
@@ -174,8 +197,9 @@ export class HomeComponent {
  
  
   logout(){
+    window.location.href=`http://localhost:4200`
     localStorage.removeItem('token')
-    window.location.reload();
+    
   }
   
   fromsidetoinc(d:any,j:any,arr:any){
@@ -210,11 +234,10 @@ export class HomeComponent {
    //  let z=this.ar.pk()
     console.log(arr)
     j.forEach((y:any)=>{
+
        y.items.forEach((x:any)=>{
- 
          const exists = arr.some((obj:any) => obj.itemname==x.itemname);
           console.log(exists)
-         
           if(x.itemname==d.itemname  && exists==true){
            
           }

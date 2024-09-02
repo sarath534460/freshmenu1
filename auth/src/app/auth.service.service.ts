@@ -11,6 +11,7 @@ export class AuthServiceService {
   loginchecking:any;
   arr: any[]=[] ;
   tws:any
+  
   constructor() {
 
     console.log(this.loginchecking,"from the house of login")
@@ -36,8 +37,10 @@ export class AuthServiceService {
     console.log(p)
     let s=new HomeComponent()
     s.fromsidetoinc(p,this.tws,this.arr)
+
     let k= new ProductviewComponent()
     k.updateprodfroside(p,this.datafromproduct)
+    
   }
  
   tochangedescfrsidetohome(s:any){
