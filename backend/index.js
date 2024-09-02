@@ -19,7 +19,7 @@ let checkotp;
 let database;
 let collection;
 let usercollection;
-let secret="jwrgejrhgkjhgh7565454354357vcbvhkfhgfv765655375"
+let secret=process.env.secret
 
 // app.use(express.json({ limit: '1gb' }));
 app.use(bodyparser.json({ limit: '600mb' })); // Increase the limit as needed
@@ -41,8 +41,8 @@ app.use(passport.initialize());
 
 //Step 5: Configure Passport with Google Strategy
 passport.use(new GoogleStrategy({
-    clientID: '531034718992-lfmes1kimcslmc8u8nb2tg0kl8qbgu22.apps.googleusercontent.com',  // Replace with your Google client ID
-    clientSecret: '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',  // Replace with your Google client secret
+    clientID: process.env.clientID,//replace with your Google client ID
+    clientSecret: process.env.clientSecret,  // Replace with your Google client secret
     callbackURL: "/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, done) {
@@ -204,7 +204,7 @@ app.post('/login',async(req,res)=>{
 
      let mobile=Number(req.body.no)
     console.log(mobile)
-    const apiKey = 'GgP9jp4Ysa23nvWScNlxbzIMTAufEiOJyLh1ZoHUQ0rwV7dmR6RsAkfjl15qrOHcigPUtdSn4LoIEY2m';// Replace with your Fast2SMS API key
+    const apiKey = process.env.apiKey// Replace with your Fast2SMS API key
 
     const otp = Math.floor(100000 + Math.random() * 900000);
     checkotp=otp
@@ -217,7 +217,7 @@ app.post('/login',async(req,res)=>{
 
      else if(pk!=null){
      const response = await fast2sms.sendMessage({
-      authorization: 'GgP9jp4Ysa23nvWScNlxbzIMTAufEiOJyLh1ZoHUQ0rwV7dmR6RsAkfjl15qrOHcigPUtdSn4LoIEY2m',
+      authorization: process.env.authorization,
       sender_id:'LKHMDS'  ,      // Your Fast2SMS API key
       message: `Your OTP code is ${otp}`, // OTP message content
       numbers: [mobile]          // Recipient phone number as an array
