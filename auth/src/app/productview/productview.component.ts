@@ -28,6 +28,7 @@ export class ProductviewComponent {
    categoryname: any;
    arb: boolean=false;
    auth:any;
+   newarray:any[]=[];
 
    constructor(actrout ?:ActivatedRoute,http?:HttpClient,auth?:AuthServiceService){
   
@@ -90,7 +91,6 @@ export class ProductviewComponent {
 
   inc(y:any){
     y.quantity++
-
     y.totalprice=y.quantity*y.price
     this.cart.calculateTotalPrice()
     this.cart.showCart=true
@@ -98,24 +98,18 @@ export class ProductviewComponent {
     let cat={categ:this.categoryname}
     let payload={y,cat}
     this.token=localStorage.getItem('token');
-
-     let headers=new HttpHeaders({'Authorization':this.token})
-
+    let headers=new HttpHeaders({'Authorization':this.token})
     this.http.post('http://localhost:48/incfromproduct',payload,{headers}).pipe(repeat(20)).subscribe((jh:any)=>{    
     })
-   
-
   }
 
   add(item:any){
-
+    this.newarray.push(item)
+    console.log(this.newarray)
     this.cart.showCart=true
     item.totalprice=item.price
-    
     console.log(item)
-   
-    
-  // this.datain.quantity++
+   // this.datain.quantity++
     this.cart.fromprodadditem(item)
    this.isButtonVisible=false
    this.datain.quantity++
@@ -126,7 +120,6 @@ export class ProductviewComponent {
      
    })
 
-   this.datain.quantity++
 
   }
 
@@ -134,13 +127,17 @@ export class ProductviewComponent {
    try{
     console.log(p)
     console.log(productitem)
-   if(p.itemname==productitem.itemname){
+    console.log(this.newarray)
+    const exists = this.newarray.some((obj:any) => obj.itemname==p.itemname);
+    console.log(exists)
+
+   if(exists){
+    
+   }
+   else if(p.itemname==productitem.itemname){
       productitem.quantity++
    }
 
-  else if(p.itemname!=productitem.itemname){
-   
-  }
 
   }
   catch(e){
@@ -152,13 +149,14 @@ export class ProductviewComponent {
     try{
     console.log(p)
     console.log(productitem)
-   if(p.itemname==productitem.itemname){
+    const exists = this.newarray.some((obj:any) => obj.itemname==p.itemname);
+    if(exists){  
+    }
+    else if(p.itemname==productitem.itemname){
       productitem.quantity--
-   }
+    }
   }
-
   catch(e){
-
   }
   }
 

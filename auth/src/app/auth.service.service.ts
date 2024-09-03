@@ -37,9 +37,6 @@ export class AuthServiceService {
     console.log(p)
     let s=new HomeComponent()
     s.fromsidetoinc(p,this.tws,this.arr)
-
-   
-    
     let k= new ProductviewComponent()
     k.updateprodfroside(p,this.datafromproduct)
   }
