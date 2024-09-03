@@ -4,10 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "[angular] build --output public",
+
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
-    
+    "test": "ng test",
+    "serve:ssr:auth": "node dist/auth/server/server.mjs"
   },
   "private": true,
   "dependencies": {
