@@ -92,9 +92,6 @@ app.get('/auth/google/callback',
 );
 
 
-
-
-
 // Step 9: Middleware to Ensure User is Authenticated
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
