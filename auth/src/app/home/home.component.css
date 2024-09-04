@@ -10,7 +10,8 @@
     background-color: hwb(40 0% 0%);
   
    }
-
+   
+  
    .lower{
     display:flex;
     align-items:center;
@@ -236,7 +237,7 @@
    
       background-color: #9b9b9b; /* Set your desired hover background color */
       color: white; /* Optional: change text color on hover */
-  }
+    }
     
     /* .logos {
         
